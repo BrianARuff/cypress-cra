@@ -6,4 +6,11 @@ describe("app renders", () => {
     pTag.should("not.have.text", "asdf");
     cy.get('[data-cy=container]').children()
   });
+  it("renders count", () => {
+    cy.get('[data-cy=count]').should("have.text", "1");
+  })
+  it("increments count when clicked", () => {
+    cy.get('[data-cy=incrementCount]').click()
+    cy.get('[data-cy=count]').should("have.text", "2");
+  })
 });
